@@ -1,7 +1,0 @@
-all: stdafx.h IronFly.cpp
-	clang++ -std=c++14 -O2 -o IronFly IronFly.cpp -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio
-
-.PHONY:
-clean:
-	rm -f IronFly
-
