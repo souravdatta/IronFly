@@ -35,7 +35,7 @@ public:
     sprite.setTexture(texture);
   }
   
-  void loadaSound(const char *file, sf::SoundBuffer& soundBuffer, sf::Sound& sound)
+  void loadSound(const char *file, sf::SoundBuffer& soundBuffer, sf::Sound& sound)
   {
     auto f = this->fileName(file);
     if (!soundBuffer.loadFromFile(f.c_str())) {
@@ -185,7 +185,7 @@ public:
   {
     ResourceLoader loader;
     loader.loadSprite(ironManSpriteName, this->texture, this->sprite);
-    loader.loadaSound(ironManShootSound, this->buffer, this->shootSound);
+    loader.loadSound(ironManShootSound, this->buffer, this->shootSound);
     initPosition = sprite.getPosition();
     reset();
   }
