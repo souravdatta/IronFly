@@ -18,11 +18,21 @@ const char *backgroundSpriteName = "Background.png";
 class ResourceLoader
 {
 private:
-  std::string fileName(const char *file) {
+  std::string fileName(const char *file) 
+  {
+#ifdef __APPLE_CC__
+#include "ResourcePath.hpp"
+	std::string s = resourcePath();
+    s = s + "/resources";
+    s = s + "/";
+    s = s + file;
+#else
     std::string s{file};
-    return "resources/" + s;
-  }
-  
+    s = "resources/" + s;
+#endif
+    std::cout << "resourcePath: " << s << std::endl;
+    return s;
+  }  
 public:
   void loadSprite(const char *file, sf::Texture& texture, sf::Sprite& sprite)
   {
